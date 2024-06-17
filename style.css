@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #a31313;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: 0.3s ease all 0s;
+}
+
+.home-button:hover {
+    background-color: #870f0f;
+}
+
+#board {
+    grid-template-columns: 1fr;
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    height: 100vh;
+    width: 100vh;
+}
+
+.grid-buttons button {
+    border: none;
+}
+
+.black-tile {
+    background-color: rgb(112, 88, 66);
+}
