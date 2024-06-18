@@ -8,23 +8,27 @@
     padding: 15px 30px;
     font-size: 20px;
     color: white;
-    background-color: #a31313;
+    background-color: #b83131;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     transition: 0.3s ease all 0s;
 }
 
 .home-button:hover {
-    background-color: #870f0f;
+    background-color: #761414;
 }
 
 #board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-template-columns: 1fr;
 }
 
 .grid-buttons {
+    
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     height: 100vh;
@@ -38,3 +42,17 @@
 .black-tile {
     background-color: rgb(112, 88, 66);
 }
+
+body, html {
+    text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .cover {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 50px;
+        border-radius: 10px;
+    }
