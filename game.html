@@ -5,35 +5,61 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <style>
+        .black-tile {
+            font-size: 100px;
+        }
+
+
+        .scoreboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: #9eac9b;
+            border-radius: 5px 5px;
+            margin-left: 50vh;
+            margin-right: 50vh;
+        }
+    </style>
     <br>
+    <div class="scoreboard">
+        <div class="player-1-score">
+            <strong><h1>Red Draughts</h1></strong><br>
+            <h1 id="p1_score">#</h1>
+        </div>
+        <div class="player-1-score">
+            <strong><h1>Blue Draughts</h1></strong><br>
+            <h1 id="p2_score">#</h1>
+        </div>
+    </div><br>
+   
     <section id="board">
         <div class="grid-buttons">
             <!--Row 7-->
-            <button id="G.0-7" class="black-tile">-</button>
+            <button id="G.0-7" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.2-7" class="black-tile">-</button>
+            <button id="G.2-7" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.4-7" class="black-tile">-</button>
+            <button id="G.4-7" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.6-7" class="black-tile">-</button>
+            <button id="G.6-7" class="black-tile" data-state="2">-</button>
             <button></button>
             <!--Row 6-->
             <button></button>
-            <button id="G.1-6" class="black-tile">-</button>
+            <button id="G.1-6" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.3-6" class="black-tile">-</button>
+            <button id="G.3-6" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.5-6" class="black-tile">-</button>
+            <button id="G.5-6" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.7-6" class="black-tile">-</button>
+            <button id="G.7-6" class="black-tile" data-state="2">-</button>
             <!--Row 5-->
-            <button id="G.0-5" class="black-tile">-</button>
+            <button id="G.0-5" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.2-5" class="black-tile">-</button>
+            <button id="G.2-5" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.4-5" class="black-tile">-</button>
+            <button id="G.4-5" class="black-tile" data-state="2">-</button>
             <button></button>
-            <button id="G.6-5" class="black-tile">-</button>
+            <button id="G.6-5" class="black-tile" data-state="2">-</button>
             <button></button>
             <!--Row 4-->
             <button></button>
@@ -55,31 +81,31 @@
             <button></button>
             <!--Row 2-->
             <button></button>
-            <button id="G.1-2" class="black-tile">-</button>
+            <button id="G.1-2" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.3-2" class="black-tile">-</button>
+            <button id="G.3-2" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.5-2" class="black-tile">-</button>
+            <button id="G.5-2" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.7-2" class="black-tile">-</button>
+            <button id="G.7-2" class="black-tile" data-state="1">-</button>
             <!--Row 1-->
-            <button id="G.0-1" class="black-tile">-</button>
+            <button id="G.0-1" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.2-1" class="black-tile">-</button>
+            <button id="G.2-1" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.4-1" class="black-tile">-</button>
+            <button id="G.4-1" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.6-1" class="black-tile">-</button>
+            <button id="G.6-1" class="black-tile" data-state="1">-</button>
             <button></button>
             <!--Row 0-->
             <button></button>
-            <button id="G.1-0" class="black-tile">-</button>
+            <button id="G.1-0" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.3-0" class="black-tile">-</button>
+            <button id="G.3-0" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.5-0" class="black-tile">-</button>
+            <button id="G.5-0" class="black-tile" data-state="1">-</button>
             <button></button>
-            <button id="G.7-0" class="black-tile">-</button>
+            <button id="G.7-0" class="black-tile" data-state="1">-</button>
             <!---->
         </div>
     </section>
