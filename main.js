@@ -9,11 +9,12 @@ let teamTwo = 12;
 
 //Reset All Pieces
 
-
+//Main code:
 document.addEventListener("DOMContentLoaded", function() {
-   
-document.getElementById("p1_score").textContent = teamOne;
-document.getElementById("p2_score").textContent = teamTwo;
+
+    //Resetting Score Text to match variables
+document.getElementById("p1_score").textContent = teamOne;  //P1 Score
+document.getElementById("p2_score").textContent = teamTwo;  //P2 Score
 
 //State Info: [0 = Empty Tile] [1 = P1 Piece] [2 = P2 Piece] [3 = P1 King Piece] [4 = P2 King Piece] []
 
@@ -21,10 +22,11 @@ document.getElementById("p2_score").textContent = teamTwo;
     //Which Turn is it:
 
 
-    let turn = 1;
+    let turn = 1;       //This variable decides wether it is the player 1 or 2 turn
     // 1: Player 1, 2: Player 2.
    
-   
+   //All rows and their id's stored in an array
+
     //Row 7:
     let G07 = [document.getElementById("G.0-7"),0,7]
     let G27 = [document.getElementById("G.2-7"),2,7]
@@ -117,8 +119,6 @@ document.getElementById("p2_score").textContent = teamTwo;
     G50[0].textContent = 'o';
     G70[0].textContent = 'o';
 
-//BEFORE CLICKING, ALL STATES MUST BE SET APON PAGE LOAD
-
 
 //Click Steps:
 //Find Id
@@ -131,14 +131,14 @@ document.getElementById("p2_score").textContent = teamTwo;
 
 //Registering Click:
 function ButtonListeners() {
-    const buttons = document.querySelectorAll('.black-tile');
+    const buttons = document.querySelectorAll('.black-tile');   //checking all active buttons
 
 
-    buttons.forEach(button => {
+    buttons.forEach(button => {                 //checking...
         button.addEventListener('click', (e) => {
-            const buttonId = e.target.id;
+            const buttonId = e.target.id;       //taking the id of the clicked button
             console.log(`Button clicked: ${buttonId}`);
-            checkTurn(buttonId);
+            checkTurn(buttonId);                //next function
         });
     });
 }
@@ -151,7 +151,7 @@ ButtonListeners();
 
 function checkTurn(buttonId) {
     console.log("the function went through");
-    const buttonOptions = {
+    const buttonOptions = {     //linking buttons id's to the variable storing the arrays
         //Row 7:
         "G.0-7": G07,
         "G.2-7": G27,
@@ -195,11 +195,11 @@ function checkTurn(buttonId) {
     }
     const currentButton = buttonOptions[buttonId];
     console.log(`Button Id: ${buttonId}, Button Variable: ${currentButton}`);
-    checkTurn(buttonId, currentButton);
+    checkTurn2(buttonId, currentButton);
 }
 
 
-function checkTurn(buttonId, currentButton) {
+function checkTurn2(buttonId, currentButton) {
     if (turn == 1) {
         checkStateP1(buttonId, currentButton);
         //if the state and turn are correct, the box will light up as blue and then
@@ -207,33 +207,29 @@ function checkTurn(buttonId, currentButton) {
     } else if (turn == 2) {
         checkStateP2(buttonId, currentButton);
     }
-    //add a state for a player there
-   
-    //switch turn at the end of move
-    //make an html title displaying the turn
 }
 
 
 function checkStateP1(buttonId, currentButton) {
-    const button = document.getElementById(buttonId);
-    let state = button.getAttribute('data-state');
+    const button = document.getElementById(buttonId);   
+    let state = button.getAttribute('data-state');      //finding the assigned state
 
 
     if (state == 1) {
-        button.style.backgroundColor = '#110088';
-        movePieceP1(button, buttonId, currentButton);
+        button.style.backgroundColor = '#110088';       //change colors
+        movePieceP1(state, button, buttonId, currentButton);
     }
 }
 
 
 function checkStateP2(buttonId, currentButton) {
     const button = document.getElementById(buttonId);
-    let state = button.getAttribute('data-state');
+    let state = button.getAttribute('data-state');      //finding the assigned state
 
 
     if (state == 2) {
-        button.style.backgroundColor = '#110088';
-        movePieceP2(button, buttonId, currentButton);
+        button.style.backgroundColor = '#110088';       //change colors
+        movePieceP2(state, button, buttonId, currentButton);
     }
 }
 
@@ -241,17 +237,61 @@ function checkStateP2(buttonId, currentButton) {
 //add, subtract, etc, to find the two options
         //check for their states and highlight only if states are appropriate
         //if the attributed option is clicked, update the all the states and remove highlights
-function movePieceP1(button, buttonId, currentButton) {
-    const opt1 = [currentButton[1] - 1, currentButton[2] + 1];
+function movePieceP1(state, button, buttonId, currentButton) {
+    const opt1 = [currentButton[1] - 1, currentButton[2] + 1];      //getting option 1 array coords
     console.log(`Option 1: ${opt1}`);
-    const opt2 = [currentButton[1] + 1, currentButton[2] + 1];
+    const opt2 = [currentButton[1] + 1, currentButton[2] + 1];      //getting option 2 array coords
     console.log(`Option 2: ${opt2}`);
     document.getElementById(`${buttonId}`);
+
+    let opt1Id = `G.${opt1[0]}-${opt1[1]}`;         //matching it to the ids
+    console.log(`Option 1 id: ${opt1Id}`);
+    let opt2Id = `G.${opt2[0]}-${opt2[1]}`;         //matching it to the ids
+    console.log(`Option 2 id: ${opt2Id}`);
+
+    
+    let stateOpt1 = document.getElementById(opt1Id).getAttribute('data-state'); //grabbing states of the options
+    console.log(`option 1 state: ${stateOpt1}`);
+    let stateOpt2 = document.getElementById(opt2Id).getAttribute('data-state');
+    console.log(`option 2 state: ${stateOpt2}`);
+
+    if (stateOpt1 == 0) {
+        document.getElementById(opt1Id).style.backgroundColor = '#004400';  //if the state is empty, set the highlight (stopped working)
+    }
+    if (stateOpt2 == 0) {
+        document.getElementById(opt2Id).style.backgroundColor = '#004400';
+    }
+
+
+    
+   
 }
 
 
-function movePieceP2(button, buttonId, currentButton) {
-        
+function movePieceP2(button, buttonId, currentButton) {         //same thing for player two but going downward:
+    const opt1 = [currentButton[1] - 1, currentButton[2] - 1];      //getting option 1 array coords
+    console.log(`Option 1: ${opt1}`);
+    const opt2 = [currentButton[1] + 1, currentButton[2] - 1];      //getting option 2 array coords
+    console.log(`Option 2: ${opt2}`);
+    document.getElementById(`${buttonId}`);
+
+    let opt1Id = `G.${opt1[0]}-${opt1[1]}`;         //matching it to the ids
+    console.log(`Option 1 id: ${opt1Id}`);
+    let opt2Id = `G.${opt2[0]}-${opt2[1]}`;         //matching it to the ids
+    console.log(`Option 2 id: ${opt2Id}`);
+
+    
+    let stateOpt1 = document.getElementById(opt1Id).getAttribute('data-state'); //grabbing states of the options
+    console.log(`option 1 state: ${stateOpt1}`);
+    let stateOpt2 = document.getElementById(opt2Id).getAttribute('data-state');
+    console.log(`option 2 state: ${stateOpt2}`);
+
+    if (stateOpt1 == 0) {
+        document.getElementById(opt1Id).style.backgroundColor = '#004400';  //if the state is empty, set the highlight (stopped working)
+    }
+    if (stateOpt2 == 0) {
+        document.getElementById(opt2Id).style.backgroundColor = '#004400';
+    }  
 }
 
 

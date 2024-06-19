@@ -1,9 +1,11 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/*This is the home button.*/
 .home-button {
     padding: 15px 30px;
     font-size: 20px;
@@ -16,10 +18,12 @@
     transition: 0.3s ease all 0s;
 }
 
+/*The home button changes colour if a cursor is hovered over it.*/
 .home-button:hover {
     background-color: #761414;
 }
 
+/*Design of the checkerboard.*/
 #board {
     display: flex;
     justify-content: center;
@@ -27,6 +31,7 @@
     grid-template-columns: 1fr;
 }
 
+/*All grids placed in an 8x8 board.*/
 .grid-buttons {
     
     display: grid;
@@ -35,14 +40,17 @@
     width: 100vh;
 }
 
+/*Makes the tiles with draughts interactable.*/
 .grid-buttons button {
     border: none;
 }
 
+/*Design of a black tile.*/
 .black-tile {
     background-color: rgb(112, 88, 66);
 }
 
+/*The rest of the text and backgrounds for the whole website, including the Main Menu.*/
 body, html {
     text-align: center;
         margin: 0;
